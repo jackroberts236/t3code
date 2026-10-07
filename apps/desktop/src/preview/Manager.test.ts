@@ -4188,6 +4188,8 @@ describe("PreviewManager", () => {
         const result = yield* Fiber.join(secondPick);
         expect(result?.annotation.comment).toBe("Second pick");
         expect(result?.submission).toBe("attach");
+        expect(result?.annotation.id).not.toBe(annotation.id);
+        expect(result?.annotation.id).not.toBe("annotation_2");
       }),
     ),
   );
